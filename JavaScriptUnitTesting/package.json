@@ -1,0 +1,11 @@
+{
+  "name": "JavaScriptUnitTesting",
+  "version": "0.0.0",
+  "description": "JavaScriptUnitTesting",
+  "main": "server.js",
+  "author": {
+    "name": "timvanelst",
+    "email": ""
+  },
+  "dependencies": {}
+}

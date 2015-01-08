@@ -1,0 +1,13 @@
+{
+  "name": "Jasmine",
+  "version": "0.0.0",
+  "description": "Jasmine",
+  "main": "server.js",
+  "author": {
+    "name": "timvanelst",
+    "email": ""
+  },
+  "dependencies": {
+    "jasmine": "^2.1.1"
+  }
+}
