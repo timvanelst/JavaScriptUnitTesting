@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Jasmine", "Jasmine\Jasmine.njsproj", "{8B2151B5-68F0-45FC-A98E-AF5557E143E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ngSite", "ngSite\ngSite.csproj", "{07864707-99C3-4F8B-B69C-E30BF11C5F18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUI.Tests", "CodedUI.Tests\CodedUI.Tests.csproj", "{3DAFD3A6-156C-4ED9-B1E2-669440538C69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8B2151B5-68F0-45FC-A98E-AF5557E143E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8B2151B5-68F0-45FC-A98E-AF5557E143E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8B2151B5-68F0-45FC-A98E-AF5557E143E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8B2151B5-68F0-45FC-A98E-AF5557E143E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07864707-99C3-4F8B-B69C-E30BF11C5F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07864707-99C3-4F8B-B69C-E30BF11C5F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07864707-99C3-4F8B-B69C-E30BF11C5F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07864707-99C3-4F8B-B69C-E30BF11C5F18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DAFD3A6-156C-4ED9-B1E2-669440538C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DAFD3A6-156C-4ED9-B1E2-669440538C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DAFD3A6-156C-4ED9-B1E2-669440538C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DAFD3A6-156C-4ED9-B1E2-669440538C69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
