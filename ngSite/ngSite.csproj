@@ -63,12 +63,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\sample-code\sampleUsingCustomAndNgService.js" />
     <Content Include="app_tests\sample-code\customMock.js" />
     <Content Include="app\sample-code\password.js" />
     <Content Include="app\sample-code\sampleUsingUtilService.js" />
     <Content Include="app\sample-code\utilService.js" />
     <Content Include="app_tests\portal\customer\list-spec.js" />
     <Content Include="app_tests\sample-code\password-spec.js" />
+    <Content Include="app_tests\sample-code\sampleUsingCustomAndNgService-spec.js" />
     <Content Include="app_tests\sample-code\sampleUsingUtilService-spec.js" />
     <Content Include="app_tests\sample-code\utilMock.js" />
     <Content Include="app_tests\services\datacontext-spec.js" />
