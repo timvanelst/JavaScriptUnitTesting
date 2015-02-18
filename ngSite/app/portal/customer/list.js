@@ -3,7 +3,8 @@
 
     var controllerId = 'customer.list';
     angular.module('app', []).controller(controllerId,
-        ['$rootScope', 'common', 'authService', 'datacontext.customer', '$location', list]);
+        //['$rootScope', 'common', 'authService', 'datacontext.customer', '$location', list]);
+        ['$rootScope', 'common', 'authService', 'datacontext', '$location', list]);
 
     function list($rootScope, common, authService, datacontext, $location) {
         var getLogFn = common.logger.getLogFn;
@@ -25,6 +26,7 @@
 
         function loadData() {
             return datacontext.getCustomers().then(function (httpResult) {
+                console.log(httpResult);
                 return vm.customers = httpResult.data;
             });
         }

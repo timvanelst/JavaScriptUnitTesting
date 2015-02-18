@@ -5,34 +5,36 @@
 
 describe('Mocking a service', function () {
     var mockUtilSvc;
-    var $rootScope;
+    var $scopeMock;
 
     function createController() {
         return $controller('sampleControllerWithNgService',
                 {
-                    $rootScope: $rootScope,
+                    $rootScope: $scopeMock,
                     utilSvc: mockUtilSvc
                 });
     }
 
-    describe('without mocking the behaviour', function () {
+    describe('without mocking the behaviour of the custom service', function () {
         beforeEach(function() {
-            module('sampleServices', function($provide) {
+            module('sampleServices');
+            module(function($provide) {
                 var utilSvcMock = jasmine.createSpyObj('utilSvc', ['isNumber', 'isDate']);
                 $provide.value('utilSvc', utilSvcMock);
-            });
 
-            inject(function (utilSvc) {
+                $provide.value('_$rootScope_', jasmine.createSpyObj('_$rootScope_', ['title']));
+            });
+            
+
+            inject(function (_$controller_, _$rootScope_, utilSvc) {
+                // The injector unwraps the underscores (_) from around the parameter names when matching
+                $controller = _$controller_;
+                $scopeMock = _$rootScope_;
                 mockUtilSvc = utilSvc;
             });
 
         });
 
-        beforeEach(inject(function (_$controller_, _$rootScope_) {
-            // The injector unwraps the underscores (_) from around the parameter names when matching
-            $controller = _$controller_;
-            $rootScope = _$rootScope_;
-        }));
 
         it('should be able to verify whether a mocked method is called', function () {
             var controller = createController();
@@ -44,9 +46,14 @@ describe('Mocking a service', function () {
             controller.getValue(39);
             expect(mockUtilSvc.isNumber).toHaveBeenCalled();
         });
+
+        it('cannot verify the value of Title, because it is not defined', function ()
+        {
+            expect($scopeMock.title).toBeUndefined();
+        });
     });
 
-    describe('with behaviour of mock defined', function () {
+    describe('with behaviour of mock of the custom service defined', function () {
 
         beforeEach(function () {
             module('sampleServices', function ($provide) {
@@ -59,17 +66,22 @@ describe('Mocking a service', function () {
                         return true;
                     });
                 });
+
+                $provide.service('_$rootScope_', function () {
+                    this.title = jasmine.createSpy("_$rootScope_").and.callFake(function () {
+                        return 'mocked Title';
+                    });
+                });
+
             });
 
-            inject(function (utilSvc) {
+            inject(function (_$controller_, _$rootScope_, utilSvc) {
+                // The injector unwraps the underscores (_) from around the parameter names when matching
+                $controller = _$controller_;
+                $scopeMock = {title: 'undefined string'};
                 mockUtilSvc = utilSvc;
             });
         });
-
-        beforeEach(inject(function (_$controller_) {
-            // The injector unwraps the underscores (_) from around the parameter names when matching
-            $controller = _$controller_;
-        }));
 
         it('should run an actual test', function () {
             expect(true).toBe(true);
@@ -97,6 +109,9 @@ describe('Mocking a service', function () {
             expect(mockUtilSvc.isNumber).toHaveBeenCalledWith(39);
         });
 
+        it('should be able to verify the value of Title', function () {
+            expect($scopeMock.title).toBe('Test Titel');
+        });
 
     });
 })
